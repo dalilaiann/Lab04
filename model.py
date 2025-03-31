@@ -13,6 +13,7 @@ class MultiDictionary:
         self._spanish.loadDictionary("resources/Spanish.txt")
 
     def printDic(self, language):
+        """Funzione per la stampa del dizionario"""
         if language == "english":
             self._english.printAll()
         elif language == "italian":
@@ -23,7 +24,7 @@ class MultiDictionary:
             print("Language not supported")
 
     def searchWord(self, words, language):
-        # words is a list of strings
+        """Funzione per la ricerca delle parole nel dizionario con il metodo Default"""
         parole = []
 
         for word in words:
@@ -47,7 +48,7 @@ class MultiDictionary:
         return parole
 
     def searchWordLinear(self, words, language):
-        # words is a list of strings
+        """Funzione per la ricerca delle parole nel dizionario con il metodo Linear"""
         parole = []
 
         for word in words:
@@ -74,7 +75,7 @@ class MultiDictionary:
         return parole
 
     def searchWordDichotomic(self, words, language):
-        # words is a list of strings
+        """Funzione per la ricerca delle parole nel dizionario con il metodo Dicotomico"""
         parole = []
 
         for word in words:
@@ -97,8 +98,16 @@ class MultiDictionary:
 
         return parole
 
+    def printWordErrate(self, paroleErrate):
+        """Funzione per la costruzione della stringa contenente le parole errate"""
+        myStr=""
+
+        for w in paroleErrate:
+            myStr+=w
+        return myStr
 
 def dichotomicSearch(word, currentDic):
+    """Funzione per la ricerca dicotomica di una sola parola"""
     start = 0
     end = len(currentDic)
 
